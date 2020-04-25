@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/run_together"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2EABE9"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/party_photo"
+                android:layout_weight="3"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layoutDirection="rtl"
+                android:textDirection="rtl"
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="6dp"
+                    android:id="@+id/btnCreateMatch"
+                    android:text="@string/create_a_match"
+                    />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:id="@+id/btnJoinMatch"
+                    android:text="@string/join_a_match"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+</LinearLayout>

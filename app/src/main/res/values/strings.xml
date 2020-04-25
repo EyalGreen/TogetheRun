@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">TogetheRun</string>
+    <string name="login" translatable="false">login</string>
+    <string name="email">Email:</string>
+    <string name="Password">Password:</string>
+    <string name="submit">submit</string>
+    <string name="facebook_app_id">121904312557320</string>
+    <string name="fb_login_protocol_scheme">fb121904312557320</string>
+    <string name="km">km</string>
+    <string name="hour">hour</string>
+    <string name="second">second</string>
+    <string name="minute">minute</string>
+    <string name="run_solo">Run Solo</string>
+    <string name="party">Party</string>
+    <string name="Me">Me</string>
+    <string name="Run">Run</string>
+
+    <string-array name="run_settings_options">
+        <item>Target Distance</item>
+        <item>Target Duration</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="run_together">Run Together</string>
+    <string name="play_with_random">Play With Random</string>
+    <string name="play_with_friend">Play With Friend</string>
+    <string name="enter_your_nickname">Enter your nickname...</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_your_username">Enter your username:</string>
+    <string name="confirm">Confirm</string>
+    <string name="enter_your_username_hint">Enter your username...</string>
+    <string name="add_friend">add friend</string>
+    <string name="username_is_already_taken">Username is already taken</string>
+    <string name="add_friend_title">Add friend</string>
+    <string name="enter_your_friend_s_username">Enter your friend\'s username...</string>
+    <string name="username_not_found">username not found</string>
+    <string name="your_requests">Your Requests:</string>
+    <string name="friend_request">Friend Request</string>
+    <string name="request_sender">Request Sender:</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="close">Close</string>
+    <string name="sign_in">Sign In</string>
+    <string name="click_here_to_reset_your_password">Forgot your password? Click here</string>
+    <string name="enter_your_email">Enter Your Email And We Will Send You An Email To Reset Your Password</string>
+    <string name="enter_your_email_hint">Enter your email...</string>
+    <string name="email_not_exist">Email not exist</string>
+    <string name="send">Send</string>
+    <string name="error_invalid_email">Invalid Email</string>
+    <string name="error_user_exists">User Already Exists</string>
+    <string name="title_activity_run">Map</string>
+    <string name="_00_00">00\'00\"</string>
+    <string name="time">Time</string>
+    <string name="pace">Pace</string>
+    <string name="run_lobby">Run Lobby</string>
+    <string name="waiting_for_all_players_to_connect">Waiting for all players to be ready...</string>
+    <string name="quit">Quit</string>
+    <string name="create_a_match">Create a Match</string>
+    <string name="join_a_match">Join a Match</string>
+    <string name="create_match">Create Match</string>
+    <string name="max_players">Max Players:</string>
+    <string name="target_of_run">Target Of Run:</string>
+    <string name="create">Create</string>
+    <string name="ready">Ready</string>
+    <string name="join_match">Join Match</string>
+    <string name="join">Join</string>
+    <string name="join_to_random_game">Join To Random Match</string>
+    <string name="running_time">Running Time</string>
+    <string name="total_km">Total Km</string>
+    <string name="average_pace">Average Pace</string>
+    <string name="records">Records</string>
+    <string name="me">Me</string>
+    <string name="run">Run</string>
+    <string name="you_finished_the_run">You Finished The Run!</string>
+    <string name="your_results">Your Results</string>
+    <string name="distance">Distance</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="save_image">Save Image</string>
+</resources>

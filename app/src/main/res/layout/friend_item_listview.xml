@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_marginTop="16dp"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
+
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="6dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/friendProfilePic"
+        android:background="@drawable/back"
+        android:src="@drawable/defualt_pic"
+        android:layout_weight="1"/>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/eye_icon"
+        android:id="@+id/inMatchBtn"
+        android:background="@color/inGameEye"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:id="@+id/friendName"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:text="eyal green"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/friendTeamName"
+            android:textSize="10sp"
+            android:textAllCaps="false"
+            android:text="The speedsters"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="4862"
+                android:textAlignment="center"
+                android:id="@+id/friendRating"
+                android:textSize="18sp"/>
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shoes_icon"/>
+        </LinearLayout>
+
+</LinearLayout>

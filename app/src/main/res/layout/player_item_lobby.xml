@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/runnerProfilePic"
+            android:src="@drawable/defualt_pic"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/runnerName"
+                android:textSize="30sp"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:text="eyal green"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/runnerTeamName"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:text="The speedsters"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="4862"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:id="@+id/PlayerRating"
+                android:textSize="18sp"/>
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shoes_icon"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerProgressBarLayout"
+    android:layout_width="wrap_content"
+
+    android:layout_height="wrap_content"
+    android:background="#4777"
+    android:clickable="true"
+    android:elevation="10dp"
+    android:focusable="true">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        app:srcCompat="@drawable/map_btn"
+        tools:layout_editor_absoluteY="0dp" />
+</LinearLayout>
