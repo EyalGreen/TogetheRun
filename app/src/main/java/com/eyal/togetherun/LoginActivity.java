@@ -3,9 +3,15 @@ package com.eyal.togetherun;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,10 +47,10 @@ import android.util.Log;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     public static final int RC_SIGN_IN = 100;
     private static final String TAG = "LoginActivity";
-
     private Context context;
     private FirebaseAuth mAuth;
     private EditText etEmail, etPassword;
+    private Button btnSignIn;
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager mCallbackManager;
     private AuthCredential credential;
@@ -58,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         updateUI(currentUser);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +72,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuth = FirebaseAuth.getInstance();
         this.etEmail = findViewById(R.id.etEmail);
         this.etPassword = findViewById(R.id.etPassword);
-        findViewById(R.id.btnSignIn).setOnClickListener(new View.OnClickListener() {
+        this.btnSignIn = findViewById(R.id.btnSignIn);
+        this.etEmail.addTextChangedListener(isFormValid);
+        this.etPassword.addTextChangedListener(isFormValid);
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 anonymousAuth(etEmail.getText().toString(), etPassword.getText().toString());
@@ -139,38 +147,76 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-                        // ...
                     }
                 });
     }
 
+    /**
+     * Checks if a certain String is a valid Gmail address
+     *
+     * @param emailAddress - the String to check
+     * @return true - if it is a valid Gmail address, false otherwise
+     */
+    private boolean isGmailAddress(String emailAddress) {
+        if (emailAddress == null) return false;
+        String expression = "^[\\w.+\\-]+@gmail\\.com$";
+        CharSequence inputStr = emailAddress;
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        return matcher.matches();
+    }
+
+    /**
+     * Checks if a certain String is a valid password
+     *
+     * @param password - the String to check
+     * @return true - if it is a valid password, false otherwise
+     */
+    private boolean isValidPassword(String password) {
+        String regex = "^(?=.*[0-9])"
+                + "(?=.*[a-z])(?=.*[A-Z])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$";
+        Pattern p = Pattern.compile(regex);
+        if (password == null) {
+            return false;
+        }
+        Matcher m = p.matcher(password);
+        return m.matches();
+    }
+
     private void anonymousAuth(String email, String password) {
+        if (! isGmailAddress(email)) {
+            Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (! isValidPassword(password)) {
+            Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-//                            Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-
                         } else {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             try {
                                 throw task.getException();
-                            } catch(FirebaseAuthWeakPasswordException e) {
+                            } catch (FirebaseAuthWeakPasswordException e) {
                                 etPassword.setError(e.getReason());
                                 etPassword.requestFocus();
-                            } catch(FirebaseAuthInvalidCredentialsException e) {
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
                                 etEmail.setError(getString(R.string.error_invalid_email));
                                 etEmail.requestFocus();
-                            } catch(FirebaseAuthUserCollisionException e) {
+                            } catch (FirebaseAuthUserCollisionException e) {
                                 etEmail.setError(getString(R.string.error_user_exists));
                                 etEmail.requestFocus();
-                            } catch(Exception e) {
+                            } catch (Exception e) {
                                 Log.e(TAG, e.getMessage());
                             }
                         }
@@ -291,5 +337,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    private void setFormStatus(boolean valid) {
+        btnSignIn.setActivated(valid);
+        btnSignIn.setAlpha(valid ? 1f : 0.35f);
+    }
+
+    private TextWatcher isFormValid = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            setFormStatus(isValidPassword(etPassword.getText().toString()) && isGmailAddress(etEmail.getText().toString()));
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+    };
 
 }
